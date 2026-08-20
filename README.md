@@ -26,9 +26,6 @@ I'm a final-year Computer Science and Engineering student at East West Universit
 ### ✍️ Random Dev Quote
 ![](https://quotes-github-readme.vercel.app/api?type=horizontal&theme=dark)
 
-### 🔝 Top Contributed Repo
-![](https://github-contributor-stats.vercel.app/api?username=Smswad&limit=5&theme=dark&combine_all_yearly_contributions=true)
-
 ---
 [![](https://komarev.com/ghpvc/?username=Smswad&icon=0&color=0)](https://visitcount.itsvg.in)
 
