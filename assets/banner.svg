@@ -39,6 +39,7 @@
     </filter>
 
     <style>
+    /* <![CDATA[ */
       @keyframes pulse {
         0%, 100% { opacity: 0.35; transform: scale(1); }
         50% { opacity: 0.65; transform: scale(1.08); }
@@ -54,7 +55,7 @@
         50% { transform: translateY(-3px); }
       }
 
-      /* Fan-Out & Stack Keyframes (X-axis only on outer wrapper) */
+      /* Fan-Out and Stack Keyframes (X-axis only on outer wrapper) */
       /* Timing: 0-10% stacked, 10-20% fan out, 20-75% fully spread (~5s), 75-85% stack back, 85-100% stacked */
       @keyframes slideChip1 {
         0%, 10% { transform: translateX(0px); }
@@ -133,6 +134,7 @@
         font-family: 'SF Mono', Monaco, Consolas, 'Liberation Mono', Menlo, monospace;
         font-size: 12px;
       }
+        /* ]]> */
     </style>
   </defs>
 
@@ -153,7 +155,7 @@
     <circle cx="770" cy="115" r="70" stroke-dasharray="4 4"/>
     <circle cx="770" cy="115" r="50"/>
     <circle cx="770" cy="115" r="30" stroke="#34d399" stroke-dasharray="2 3"/>
-    <!-- Crosshairs & data nodes -->
+    <!-- Crosshairs and data nodes -->
     <line x1="770" y1="35" x2="770" y2="195" stroke-dasharray="2 4"/>
     <line x1="690" y1="115" x2="850" y2="115" stroke-dasharray="2 4"/>
     <circle cx="770" cy="65" r="3" fill="#38bdf8"/>
@@ -192,7 +194,7 @@
     </text>
   </g>
 
-  <!-- Interactive Fan-Out & Stack Tech Chips -->
+  <!-- Interactive Fan-Out and Stack Tech Chips -->
   <g transform="translate(42, 160)">
     <!-- React Chip (Outer: X slide, Inner: Y float) -->
     <g class="chip-slide-1">
