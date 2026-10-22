@@ -1,4 +1,4 @@
-![Banner](assets/banner.svg)
+![Banner](https://raw.githubusercontent.com/Smswad/Smswad/main/assets/banner.svg)
 
 # Shahil Mahmud Swad
 ### Junior Full-Stack Developer (React.js & Node.js)
