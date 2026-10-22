@@ -38,24 +38,62 @@
       <feComposite in="SourceGraphic" in2="blur" operator="over"/>
     </filter>
 
-    <filter id="chipGlow" x="-10%" y="-10%" width="120%" height="120%">
-      <feGaussianBlur stdDeviation="3" result="blur"/>
-      <feComposite in="SourceGraphic" in2="blur" operator="over"/>
-    </filter>
-
     <style>
       @keyframes pulse {
         0%, 100% { opacity: 0.35; transform: scale(1); }
         50% { opacity: 0.65; transform: scale(1.08); }
       }
-      @keyframes float {
-        0%, 100% { transform: translateY(0px); }
-        50% { transform: translateY(-4px); }
-      }
       @keyframes blink {
         0%, 100% { opacity: 1; }
         50% { opacity: 0.3; }
       }
+      
+      /* Smooth Floating Keyframes (Y-axis only on inner element) */
+      @keyframes floatY {
+        0%, 100% { transform: translateY(0px); }
+        50% { transform: translateY(-3px); }
+      }
+
+      /* Fan-Out & Stack Keyframes (X-axis only on outer wrapper) */
+      /* Timing: 0-10% stacked, 10-20% fan out, 20-75% fully spread (~5s), 75-85% stack back, 85-100% stacked */
+      @keyframes slideChip1 {
+        0%, 10% { transform: translateX(0px); }
+        20%, 75% { transform: translateX(0px); }
+        85%, 100% { transform: translateX(0px); }
+      }
+      @keyframes slideChip2 {
+        0%, 10% { transform: translateX(12px); }
+        20%, 75% { transform: translateX(104px); }
+        85%, 100% { transform: translateX(12px); }
+      }
+      @keyframes slideChip3 {
+        0%, 10% { transform: translateX(24px); }
+        20%, 75% { transform: translateX(210px); }
+        85%, 100% { transform: translateX(24px); }
+      }
+      @keyframes slideChip4 {
+        0%, 10% { transform: translateX(36px); }
+        20%, 75% { transform: translateX(320px); }
+        85%, 100% { transform: translateX(36px); }
+      }
+      @keyframes slideChip5 {
+        0%, 10% { transform: translateX(48px); }
+        20%, 75% { transform: translateX(432px); }
+        85%, 100% { transform: translateX(48px); }
+      }
+
+      .chip-slide-1 { animation: slideChip1 9s cubic-bezier(0.4, 0, 0.2, 1) infinite; }
+      .chip-slide-2 { animation: slideChip2 9s cubic-bezier(0.4, 0, 0.2, 1) infinite; }
+      .chip-slide-3 { animation: slideChip3 9s cubic-bezier(0.4, 0, 0.2, 1) infinite; }
+      .chip-slide-4 { animation: slideChip4 9s cubic-bezier(0.4, 0, 0.2, 1) infinite; }
+      .chip-slide-5 { animation: slideChip5 9s cubic-bezier(0.4, 0, 0.2, 1) infinite; }
+
+      .chip-float-1 { animation: floatY 4s ease-in-out infinite; }
+      .chip-float-2 { animation: floatY 4.5s ease-in-out 0.4s infinite; }
+      .chip-float-3 { animation: floatY 4.2s ease-in-out 0.8s infinite; }
+      .chip-float-4 { animation: floatY 4.7s ease-in-out 1.2s infinite; }
+      .chip-float-5 { animation: floatY 4.4s ease-in-out 1.6s infinite; }
+
       .ambient-glow-1 {
         animation: pulse 6s ease-in-out infinite;
         transform-origin: 150px 70px;
@@ -67,12 +105,7 @@
       .status-dot {
         animation: blink 2s ease-in-out infinite;
       }
-      .chip-float-1 { animation: float 4s ease-in-out infinite; }
-      .chip-float-2 { animation: float 4.5s ease-in-out 0.5s infinite; }
-      .chip-float-3 { animation: float 5s ease-in-out 1s infinite; }
-      .chip-float-4 { animation: float 4.2s ease-in-out 1.5s infinite; }
-      .chip-float-5 { animation: float 4.8s ease-in-out 2s infinite; }
-      
+
       .main-title {
         font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
         font-size: 36px;
@@ -159,41 +192,51 @@
     </text>
   </g>
 
-  <!-- Interactive Tech Stack Pills -->
+  <!-- Interactive Fan-Out & Stack Tech Chips -->
   <g transform="translate(42, 160)">
-    <!-- React Chip -->
-    <g class="chip-float-1" transform="translate(0, 0)">
-      <rect width="90" height="30" rx="8" fill="#1e293b" fill-opacity="0.85" stroke="#0284c7" stroke-width="1.2"/>
-      <circle cx="15" cy="15" r="4" fill="#38bdf8"/>
-      <text x="26" y="20" fill="#e0f2fe" class="chip-text">React.js</text>
+    <!-- React Chip (Outer: X slide, Inner: Y float) -->
+    <g class="chip-slide-1">
+      <g class="chip-float-1">
+        <rect width="92" height="30" rx="8" fill="#1e293b" fill-opacity="0.9" stroke="#0284c7" stroke-width="1.2"/>
+        <circle cx="15" cy="15" r="4" fill="#38bdf8"/>
+        <text x="26" y="20" fill="#e0f2fe" class="chip-text">React.js</text>
+      </g>
     </g>
 
     <!-- Node.js Chip -->
-    <g class="chip-float-2" transform="translate(100, 0)">
-      <rect width="90" height="30" rx="8" fill="#1e293b" fill-opacity="0.85" stroke="#16a34a" stroke-width="1.2"/>
-      <circle cx="15" cy="15" r="4" fill="#4ade80"/>
-      <text x="26" y="20" fill="#dcfce7" class="chip-text">Node.js</text>
+    <g class="chip-slide-2">
+      <g class="chip-float-2">
+        <rect width="94" height="30" rx="8" fill="#1e293b" fill-opacity="0.9" stroke="#16a34a" stroke-width="1.2"/>
+        <circle cx="15" cy="15" r="4" fill="#4ade80"/>
+        <text x="26" y="20" fill="#dcfce7" class="chip-text">Node.js</text>
+      </g>
     </g>
 
     <!-- Express Chip -->
-    <g class="chip-float-3" transform="translate(200, 0)">
-      <rect width="95" height="30" rx="8" fill="#1e293b" fill-opacity="0.85" stroke="#475569" stroke-width="1.2"/>
-      <circle cx="15" cy="15" r="4" fill="#94a3b8"/>
-      <text x="26" y="20" fill="#f1f5f9" class="chip-text">Express.js</text>
+    <g class="chip-slide-3">
+      <g class="chip-float-3">
+        <rect width="98" height="30" rx="8" fill="#1e293b" fill-opacity="0.9" stroke="#64748b" stroke-width="1.2"/>
+        <circle cx="15" cy="15" r="4" fill="#94a3b8"/>
+        <text x="26" y="20" fill="#f1f5f9" class="chip-text">Express.js</text>
+      </g>
     </g>
 
     <!-- Supabase Chip -->
-    <g class="chip-float-4" transform="translate(305, 0)">
-      <rect width="98" height="30" rx="8" fill="#1e293b" fill-opacity="0.85" stroke="#059669" stroke-width="1.2"/>
-      <circle cx="15" cy="15" r="4" fill="#34d399"/>
-      <text x="26" y="20" fill="#d1fae5" class="chip-text">Supabase</text>
+    <g class="chip-slide-4">
+      <g class="chip-float-4">
+        <rect width="100" height="30" rx="8" fill="#1e293b" fill-opacity="0.9" stroke="#059669" stroke-width="1.2"/>
+        <circle cx="15" cy="15" r="4" fill="#34d399"/>
+        <text x="26" y="20" fill="#d1fae5" class="chip-text">Supabase</text>
+      </g>
     </g>
 
     <!-- TypeScript Chip -->
-    <g class="chip-float-5" transform="translate(413, 0)">
-      <rect width="102" height="30" rx="8" fill="#1e293b" fill-opacity="0.85" stroke="#2563eb" stroke-width="1.2"/>
-      <circle cx="15" cy="15" r="4" fill="#60a5fa"/>
-      <text x="26" y="20" fill="#dbeafe" class="chip-text">TypeScript</text>
+    <g class="chip-slide-5">
+      <g class="chip-float-5">
+        <rect width="106" height="30" rx="8" fill="#1e293b" fill-opacity="0.9" stroke="#2563eb" stroke-width="1.2"/>
+        <circle cx="15" cy="15" r="4" fill="#60a5fa"/>
+        <text x="26" y="20" fill="#dbeafe" class="chip-text">TypeScript</text>
+      </g>
     </g>
   </g>
 </svg>
