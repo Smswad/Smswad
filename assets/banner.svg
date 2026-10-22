@@ -1,0 +1,199 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 240" width="100%" height="240" fill="none">
+  <defs>
+    <!-- Background Gradient -->
+    <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0a0f1d"/>
+      <stop offset="50%" stop-color="#0f172a"/>
+      <stop offset="100%" stop-color="#080d1a"/>
+    </linearGradient>
+
+    <!-- Animated Border Gradient -->
+    <linearGradient id="borderGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#61DAFB">
+        <animate attributeName="stop-color" values="#61DAFB;#3ECF8E;#818cf8;#38bdf8;#61DAFB" dur="8s" repeatCount="indefinite"/>
+      </stop>
+      <stop offset="50%" stop-color="#3ECF8E">
+        <animate attributeName="stop-color" values="#3ECF8E;#818cf8;#38bdf8;#61DAFB;#3ECF8E" dur="8s" repeatCount="indefinite"/>
+      </stop>
+      <stop offset="100%" stop-color="#818cf8">
+        <animate attributeName="stop-color" values="#818cf8;#38bdf8;#61DAFB;#3ECF8E;#818cf8" dur="8s" repeatCount="indefinite"/>
+      </stop>
+    </linearGradient>
+
+    <!-- Accent Text Gradient -->
+    <linearGradient id="textGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#38bdf8"/>
+      <stop offset="50%" stop-color="#34d399"/>
+      <stop offset="100%" stop-color="#818cf8"/>
+    </linearGradient>
+
+    <!-- Dot Grid Pattern -->
+    <pattern id="dotPattern" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
+      <circle cx="2" cy="2" r="1" fill="#334155" opacity="0.35"/>
+    </pattern>
+
+    <!-- Glow Filter -->
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="25" result="blur"/>
+      <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+    </filter>
+
+    <filter id="chipGlow" x="-10%" y="-10%" width="120%" height="120%">
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+    </filter>
+
+    <style>
+      @keyframes pulse {
+        0%, 100% { opacity: 0.35; transform: scale(1); }
+        50% { opacity: 0.65; transform: scale(1.08); }
+      }
+      @keyframes float {
+        0%, 100% { transform: translateY(0px); }
+        50% { transform: translateY(-4px); }
+      }
+      @keyframes blink {
+        0%, 100% { opacity: 1; }
+        50% { opacity: 0.3; }
+      }
+      .ambient-glow-1 {
+        animation: pulse 6s ease-in-out infinite;
+        transform-origin: 150px 70px;
+      }
+      .ambient-glow-2 {
+        animation: pulse 7s ease-in-out 1s infinite;
+        transform-origin: 750px 170px;
+      }
+      .status-dot {
+        animation: blink 2s ease-in-out infinite;
+      }
+      .chip-float-1 { animation: float 4s ease-in-out infinite; }
+      .chip-float-2 { animation: float 4.5s ease-in-out 0.5s infinite; }
+      .chip-float-3 { animation: float 5s ease-in-out 1s infinite; }
+      .chip-float-4 { animation: float 4.2s ease-in-out 1.5s infinite; }
+      .chip-float-5 { animation: float 4.8s ease-in-out 2s infinite; }
+      
+      .main-title {
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+        font-size: 36px;
+        font-weight: 800;
+        letter-spacing: -0.5px;
+      }
+      .subtitle {
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+        font-size: 15px;
+        font-weight: 600;
+        letter-spacing: 0.2px;
+      }
+      .badge-text {
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+        font-size: 11px;
+        font-weight: 700;
+        letter-spacing: 1px;
+      }
+      .chip-text {
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+        font-size: 12px;
+        font-weight: 600;
+      }
+      .code-font {
+        font-family: 'SF Mono', Monaco, Consolas, 'Liberation Mono', Menlo, monospace;
+        font-size: 12px;
+      }
+    </style>
+  </defs>
+
+  <!-- Base Card -->
+  <rect x="2" y="2" width="896" height="236" rx="14" fill="url(#bgGradient)"/>
+  
+  <!-- Dot Grid Pattern -->
+  <rect x="2" y="2" width="896" height="236" rx="14" fill="url(#dotPattern)"/>
+
+  <!-- Ambient Glowing Orbs -->
+  <circle class="ambient-glow-1" cx="150" cy="60" r="90" fill="#38bdf8" opacity="0.18" filter="url(#glow)"/>
+  <circle class="ambient-glow-2" cx="760" cy="180" r="100" fill="#34d399" opacity="0.16" filter="url(#glow)"/>
+  <circle cx="820" cy="40" r="70" fill="#818cf8" opacity="0.12" filter="url(#glow)"/>
+
+  <!-- Decorative Tech Graphic (Right Side) -->
+  <g opacity="0.25" stroke="#38bdf8" stroke-width="1.2">
+    <!-- Concentric tech circles -->
+    <circle cx="770" cy="115" r="70" stroke-dasharray="4 4"/>
+    <circle cx="770" cy="115" r="50"/>
+    <circle cx="770" cy="115" r="30" stroke="#34d399" stroke-dasharray="2 3"/>
+    <!-- Crosshairs & data nodes -->
+    <line x1="770" y1="35" x2="770" y2="195" stroke-dasharray="2 4"/>
+    <line x1="690" y1="115" x2="850" y2="115" stroke-dasharray="2 4"/>
+    <circle cx="770" cy="65" r="3" fill="#38bdf8"/>
+    <circle cx="820" cy="115" r="3" fill="#34d399"/>
+    <circle cx="770" cy="165" r="3" fill="#818cf8"/>
+    <circle cx="720" cy="115" r="3" fill="#38bdf8"/>
+  </g>
+
+  <!-- Glowing Outer Border -->
+  <rect x="2" y="2" width="896" height="236" rx="14" stroke="url(#borderGradient)" stroke-width="2" fill="none"/>
+
+  <!-- Top Status Badge -->
+  <g transform="translate(42, 28)">
+    <rect width="215" height="26" rx="13" fill="#1e293b" fill-opacity="0.75" stroke="#334155" stroke-width="1"/>
+    <circle class="status-dot" cx="14" cy="13" r="4.5" fill="#10b981"/>
+    <circle cx="14" cy="13" r="2" fill="#ecfdf5"/>
+    <text x="27" y="17" fill="#94a3b8" class="badge-text">FULL-STACK DEVELOPER</text>
+  </g>
+
+  <!-- Interactive Terminal Prompt Tag -->
+  <g transform="translate(680, 28)">
+    <rect width="175" height="26" rx="6" fill="#1e293b" fill-opacity="0.6" stroke="#334155" stroke-width="1"/>
+    <text x="14" y="17" fill="#38bdf8" class="code-font">&gt; <tspan fill="#e2e8f0">swad.init()</tspan><tspan fill="#34d399" class="status-dot">_</tspan></text>
+  </g>
+
+  <!-- Main Name Header -->
+  <g transform="translate(42, 94)">
+    <text class="main-title" fill="#f8fafc">Shahil Mahmud Swad</text>
+    <text class="main-title" fill="url(#textGradient)" opacity="0.3" dx="1" dy="1">Shahil Mahmud Swad</text>
+  </g>
+
+  <!-- Designation / Subtitle -->
+  <g transform="translate(42, 126)">
+    <text class="subtitle" fill="#94a3b8">
+      Junior Full-Stack Developer <tspan fill="#38bdf8">•</tspan> <tspan fill="#cbd5e1">React.js &amp; Node.js</tspan>
+    </text>
+  </g>
+
+  <!-- Interactive Tech Stack Pills -->
+  <g transform="translate(42, 160)">
+    <!-- React Chip -->
+    <g class="chip-float-1" transform="translate(0, 0)">
+      <rect width="90" height="30" rx="8" fill="#1e293b" fill-opacity="0.85" stroke="#0284c7" stroke-width="1.2"/>
+      <circle cx="15" cy="15" r="4" fill="#38bdf8"/>
+      <text x="26" y="20" fill="#e0f2fe" class="chip-text">React.js</text>
+    </g>
+
+    <!-- Node.js Chip -->
+    <g class="chip-float-2" transform="translate(100, 0)">
+      <rect width="90" height="30" rx="8" fill="#1e293b" fill-opacity="0.85" stroke="#16a34a" stroke-width="1.2"/>
+      <circle cx="15" cy="15" r="4" fill="#4ade80"/>
+      <text x="26" y="20" fill="#dcfce7" class="chip-text">Node.js</text>
+    </g>
+
+    <!-- Express Chip -->
+    <g class="chip-float-3" transform="translate(200, 0)">
+      <rect width="95" height="30" rx="8" fill="#1e293b" fill-opacity="0.85" stroke="#475569" stroke-width="1.2"/>
+      <circle cx="15" cy="15" r="4" fill="#94a3b8"/>
+      <text x="26" y="20" fill="#f1f5f9" class="chip-text">Express.js</text>
+    </g>
+
+    <!-- Supabase Chip -->
+    <g class="chip-float-4" transform="translate(305, 0)">
+      <rect width="98" height="30" rx="8" fill="#1e293b" fill-opacity="0.85" stroke="#059669" stroke-width="1.2"/>
+      <circle cx="15" cy="15" r="4" fill="#34d399"/>
+      <text x="26" y="20" fill="#d1fae5" class="chip-text">Supabase</text>
+    </g>
+
+    <!-- TypeScript Chip -->
+    <g class="chip-float-5" transform="translate(413, 0)">
+      <rect width="102" height="30" rx="8" fill="#1e293b" fill-opacity="0.85" stroke="#2563eb" stroke-width="1.2"/>
+      <circle cx="15" cy="15" r="4" fill="#60a5fa"/>
+      <text x="26" y="20" fill="#dbeafe" class="chip-text">TypeScript</text>
+    </g>
+  </g>
+</svg>
